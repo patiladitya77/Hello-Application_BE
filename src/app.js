@@ -1,7 +1,9 @@
 const express = require("express");
 const connectDB = require("./config/dbConnection")
 const app = express();
-
+const authRouter = require("./Routes/auth");
+app.use(express.json())
+app.use("/", authRouter);
 
 connectDB().then(() => {
     console.log("Connection established")

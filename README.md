@@ -7,3 +7,7 @@
 - created server
 - established connection with server
 - User Schema
+- install bcrypt
+- install jsonwebtoken
+- app.use(express.json());
+- signup and login API
