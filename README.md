@@ -1,0 +1,4 @@
+- create src folder and make app.js
+- .gitignore
+- .env
+- install express
