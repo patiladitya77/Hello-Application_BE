@@ -5,4 +5,5 @@
 - install mongoose
 - connectDB config
 - created server
-- established vonnection with server
+- established connection with server
+- User Schema
