@@ -2,3 +2,7 @@
 - .gitignore
 - .env
 - install express
+- install mongoose
+- connectDB config
+- created server
+- established vonnection with server
