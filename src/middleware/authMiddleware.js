@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User")
+const User = require("../models/User");
+const authRouter = require("../Routes/auth");
 
 const userAuth = async (req, res, next) => {
     try {
@@ -10,7 +11,7 @@ const userAuth = async (req, res, next) => {
         }
         const decodedMessage = await jwt.verify(token, "jaggery");
         const { _id } = decodedMessage;
-        const user = User.findById(_id);
+        const user = await User.findById(_id);
         if (!user) {
             res.status(401).send("Usr not found");
         }
@@ -21,3 +22,5 @@ const userAuth = async (req, res, next) => {
         res.send("Error" + err.message);
     }
 }
+
+module.exports = userAuth;

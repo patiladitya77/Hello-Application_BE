@@ -12,3 +12,6 @@
 - app.use(express.json());
 - signup and login API
 - logout API
+- auth middleware
+- cors config
+- npm i cookie-parser
