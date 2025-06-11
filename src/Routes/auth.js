@@ -10,10 +10,14 @@ authRouter.post("/signup", async (req, res) => {
         const { firstName, lastName, emailId, password } = req.body;
         const hasedPassword = await bcrypt.hash(password, 10);
 
+
         const user = new User({ firstName, lastName, emailId, password: hasedPassword });
         const savedUser = await user.save();
+        const user1 = await User.findOne({ emailId: emailId });
+        const token = await jwt.sign({ _id: user1._id }, "jaggery");
+        res.cookie("token", token);
 
-        res.json({ message: "user created", savedUser });
+        res.json({ message: "user created", user1 });
 
     } catch (err) {
         res.send("ERROR: " + err.message)

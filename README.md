@@ -15,3 +15,4 @@
 - auth middleware
 - cors config
 - npm i cookie-parser
+- get firstName API

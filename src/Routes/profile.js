@@ -6,8 +6,7 @@ const profileRouter = express.Router();
 profileRouter.get("/getFirstname", userAuth, async (req, res) => {
     try {
         const user = req.user;
-        // const { firstName } = user;
-        // console.log(firstName);
+
         console.log(user);
 
         res.send(user);
