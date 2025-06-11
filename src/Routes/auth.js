@@ -25,6 +25,9 @@ authRouter.post("/login", async (req, res) => {
     try {
         const { emailId, password } = req.body;
         const user = await User.findOne({ emailId: emailId });
+        if (!user) {
+            res.status(401).send("user not found")
+        }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (isPasswordValid) {
             const token = await jwt.sign({ _id: user._id }, "jaggery");

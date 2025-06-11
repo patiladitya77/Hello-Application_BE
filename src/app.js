@@ -1,9 +1,18 @@
 const express = require("express");
-const connectDB = require("./config/dbConnection")
+const connectDB = require("./config/dbConnection");
+const cors = require("cors");
 const app = express();
 const authRouter = require("./Routes/auth");
-app.use(express.json())
+const profileRouter = require("./Routes/profile")
+app.use(express.json());
+app.use(cors({
+    origin: "http://localhost:5173",
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true
+}));
+
 app.use("/", authRouter);
+app.use("/", profileRouter);
 
 connectDB().then(() => {
     console.log("Connection established")
