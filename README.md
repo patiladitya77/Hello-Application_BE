@@ -11,3 +11,4 @@
 - install jsonwebtoken
 - app.use(express.json());
 - signup and login API
+- logout API
