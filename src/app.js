@@ -3,7 +3,9 @@ const connectDB = require("./config/dbConnection");
 const cors = require("cors");
 const app = express();
 const authRouter = require("./Routes/auth");
-const profileRouter = require("./Routes/profile")
+const profileRouter = require("./Routes/profile");
+const cookieparser = require("cookie-parser");
+app.use(cookieparser());
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:5173",
